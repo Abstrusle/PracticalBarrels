@@ -17,7 +17,7 @@ public class PracticalBarrelsClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         ScreenEvents.AFTER_INIT.register((client, screen, scaledWidth, scaledHeight) -> {
-            if (screen.getTitle().getString().equalsIgnoreCase("Barrel") &&
+            if (screen.getTitle().getString().toLowerCase().contains("barrel") &&
                     screen instanceof GenericContainerScreen) {
                 ClientPlayerEntity player = client.player;
                 assert player != null;
