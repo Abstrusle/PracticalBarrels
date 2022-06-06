@@ -8,13 +8,10 @@ import net.minecraft.client.gui.screen.ingame.GenericContainerScreen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.network.ClientPlayerInteractionManager;
-import net.minecraft.item.BundleItem;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.screen.slot.SlotActionType;
 import net.minecraft.text.Text;
-import net.minecraft.util.ClickType;
 
 public class PracticalBarrelsClient implements ClientModInitializer {
     @Override
@@ -23,25 +20,24 @@ public class PracticalBarrelsClient implements ClientModInitializer {
             if (screen.getTitle().getString().equalsIgnoreCase("Barrel") &&
                     screen instanceof GenericContainerScreen) {
                 ClientPlayerEntity player = client.player;
+                assert player != null;
                 ItemStack inputItem = player.getMainHandStack();
                 ScreenEvents.afterTick(screen).register((AfterTick) -> {
                     GenericContainerScreen invScreen = (GenericContainerScreen) screen;
                     ClientPlayerInteractionManager interactionManager = MinecraftClient.getInstance().interactionManager;
-                    if (screen instanceof GenericContainerScreen) {
-                        Screens.getButtons(screen).add(new ButtonWidget((int) screen.width/2-100, (int) (screen.height/2), 10, 10, Text.of("^"),
-                                (PressAction) -> {
-                                    for (int i = 0; i<=invScreen.getScreenHandler().getInventory().size()-9;i++) {
+                    Screens.getButtons(screen).add(new ButtonWidget(screen.width / 2 - 100, (screen.height / 2), 10, 10, Text.of("^"),
+                            (PressAction) -> {
+                                for (int i = 0; i <= invScreen.getScreenHandler().getInventory().size() - 9; i++) {
 
-                                        doItemsCheck(invScreen.getScreenHandler().getInventory().getStack(i), player, invScreen, interactionManager);
-                                    }
-                                }));
-                        if (!player.getMainHandStack().isEmpty()) {
-                            if (invScreen.getScreenHandler().getInventory().isEmpty() && !inputItem.isEmpty()) {
-                                doItemsCheck(inputItem, player, invScreen, interactionManager);
-                            } else if (!inputItem.isEmpty() && invScreen.getScreenHandler().getInventory().count(inputItem.getItem()) > 0) {
-                                doItemsCheck(inputItem, player, invScreen, interactionManager);
-                                screen.close();
-                            }
+                                    doItemsCheck(invScreen.getScreenHandler().getInventory().getStack(i), player, invScreen, interactionManager);
+                                }
+                            }));
+                    if (!player.getMainHandStack().isEmpty()) {
+                        if (invScreen.getScreenHandler().getInventory().isEmpty() && !inputItem.isEmpty()) {
+                            doItemsCheck(inputItem, player, invScreen, interactionManager);
+                        } else if (!inputItem.isEmpty() && invScreen.getScreenHandler().getInventory().count(inputItem.getItem()) > 0) {
+                            doItemsCheck(inputItem, player, invScreen, interactionManager);
+                            screen.close();
                         }
                     }
                 });

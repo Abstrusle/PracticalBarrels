@@ -19,14 +19,12 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.puradox.practicalbarrels.PracticalBarrels"
     ],
     "client": [
       "com.puradox.practicalbarrels.PracticalBarrelsClient"
     ]
   },
   "mixins": [
-    "practicalbarrels.mixins.json"
   ],
 
   "depends": {
