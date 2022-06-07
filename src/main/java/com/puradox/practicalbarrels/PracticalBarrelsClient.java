@@ -3,6 +3,7 @@ package com.puradox.practicalbarrels;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.screen.v1.ScreenEvents;
 import net.fabricmc.fabric.api.client.screen.v1.Screens;
+import net.minecraft.block.Blocks;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ingame.GenericContainerScreen;
 import net.minecraft.client.gui.widget.ButtonWidget;
@@ -17,7 +18,7 @@ public class PracticalBarrelsClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         ScreenEvents.AFTER_INIT.register((client, screen, scaledWidth, scaledHeight) -> { //Occurs after any Screen is initialized. Barrel inventory isn't prepared yet.
-            if (screen.getTitle().getString().toLowerCase().contains("barrel") &&
+            if (screen.getTitle().getString().toLowerCase().contains(Blocks.BARREL.getName().getString().toLowerCase()) &&
                     screen instanceof GenericContainerScreen) { //Is it a chest-like inventory containing the name 'Barrel'?
                 ClientPlayerEntity player = client.player;
                 assert player != null;
