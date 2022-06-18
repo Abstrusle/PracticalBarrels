@@ -10,4 +10,4 @@ The new functionalities include:
 - If the barrel contains an item you're holding, right-clicking the barrel imports all of that item (immediately closing the window).
 - An added button allows the player to insert all items related to those in the barrel inventory at once.
 
-The 1.17 jar is compatible with both 1.17 and 1.18.
+The 1.17 jar is compatible with both 1.17 and 1.18. For 1.19, Modmenu and the Cloth API are required to load the configuration menu in-game.
