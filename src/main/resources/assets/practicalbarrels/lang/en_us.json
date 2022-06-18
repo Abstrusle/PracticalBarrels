@@ -1,0 +1,23 @@
+{
+  "title.practical-barrels.config": "Practical Barrels Configuration",
+
+
+
+  "category.practical-barrels.main": "Main",
+
+
+  "option.practical-barrels.require_nbt": "Require NBT match",
+  "option.practical-barrels.require_nbt.tooltip": "If depositing requires item NBT to match (non-functional)",
+
+  "option.practical-barrels.accept_damageable_items": "Deposit damageable",
+  "option.practical-barrels.accept_damageable_items.tooltip": "Allow auto-depositing of damageable items to empty barrels",
+
+  "option.practical-barrels.accept_unstackable_items": "Deposit unstackables",
+  "option.practical-barrels.accept_unstackable_items.tooltip": "Allow auto-depositing of unstackable items to empty barrels",
+
+  "option.practical-barrels.empty_barrel_depositing":"Deposit to empty",
+  "option.practical-barrels.empty_barrel_depositing.tooltip":"If your main-hand stack is transferred to empty barrels",
+
+  "option.practical-barrels.auto_deposit": "Disable auto-deposit",
+  "option.practical-barrels.auto_deposit.tooltip": "If depositing must be done manually"
+}
